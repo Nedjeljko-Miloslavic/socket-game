@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const server = require("http").createServer(app);
-
+var PORT = process.env.PORT || 3000;
 
 const io = require("socket.io")(server);
 
@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.set("view engine", "ejs");
 
-server.listen(3000, ()=>console.log("listening"));
+server.listen(PORT, ()=>console.log("listening"));
 
 let player1Chosen = "no";
 let player2Chosen = "no";
